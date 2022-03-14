@@ -1,12 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function PeopleList({searchTerm}) {
+
+    const [data, setData] = useState([]);
     
     const loadData = async () => {
-        const url = "/api/request?search=" + encodeURIComponent(searchTerm);
+        const url = "/api/search?search=" + encodeURIComponent(searchTerm);
 
-        console.log(url);
-        // const response = await fetch("/")
+        // make a fetch request onto that URL
+        const response = await fetch(url);
+
+        //parse the response at JSON
+        const data = await response.json();
+
+        //change the state of this component, using the new data
+        setData(data);
     }
 
     useEffect(() => {
@@ -16,7 +24,11 @@ export default function PeopleList({searchTerm}) {
     return (
         <div className="people-of-interest__list">
             
-
+            <ul>
+                {data.map((person) => (
+                    <li key={person.id} className="people-of-interest__person">{person.name}</li>
+                ) )}
+            </ul>
 
         </div>
     );
