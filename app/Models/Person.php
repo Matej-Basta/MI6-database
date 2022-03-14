@@ -12,15 +12,18 @@ class Person extends Model
 {
     use HasFactory;
 
-    public function aliases() {
+    public function aliases()
+    {
         return $this->hasMany(Alias::class);
     }
 
-    public function status() {
+    public function status()
+    {
         return $this->belongsTo(Status::class);
     }
     
-    public function image() {
+    public function image()
+    {
         return $this->belongsTo(Image::class);
     }
 }

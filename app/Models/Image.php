@@ -10,7 +10,8 @@ class Image extends Model
 {
     use HasFactory;
 
-    public function person() {
+    public function person()
+    {
         return $this->hasOne(Person::class);
     }
 }
