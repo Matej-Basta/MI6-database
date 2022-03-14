@@ -41,7 +41,7 @@ mix
  
 // ADD ASSETS TO COMPILE HERE:
 mix.sass('resources/css/app.scss', 'public/css');
-mix.js('resources/js/app.js', 'public/js').react();
+mix.js('resources/js/people-of-interest.js', 'public/js').react();
 // Examples:
 // mix.sass('resources/css/app.scss', 'public/css');
 // mix.js('resources/js/library.js', 'public/js');
