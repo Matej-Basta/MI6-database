@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Alias;
 use App\Models\Status;
+use App\Models\Image;
 
 class Person extends Model
 {
@@ -17,5 +18,9 @@ class Person extends Model
 
     public function status() {
         return $this->belongsTo(Status::class);
+    }
+    
+    public function image() {
+        return $this->belongsTo(Image::class);
     }
 }
