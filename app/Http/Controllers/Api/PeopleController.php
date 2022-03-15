@@ -13,11 +13,16 @@ class PeopleController extends Controller
     {
         //get the search term from the request
         $search_term = $request->input("search");
+        $status = $request->input('status');
 
         $query = Person::query();
 
         if ($search_term !== null) {
             $query->where("name", "like", $search_term . "%");
+        }
+
+        if ($status !== null) {
+            $query->where('status_id', $status);
         }
 
         $people = $query->orderBy("name", "asc")->limit(50)->get();

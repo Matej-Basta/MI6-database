@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Alias;
 use App\Models\Status;
 use App\Models\Image;
+use App\Models\Mission;
 
 class Person extends Model
 {
@@ -21,9 +22,14 @@ class Person extends Model
     {
         return $this->belongsTo(Status::class);
     }
-    
+
     public function image()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    public function missions()
+    {
+        return $this->belongsToMany(Mission::class);
     }
 }
