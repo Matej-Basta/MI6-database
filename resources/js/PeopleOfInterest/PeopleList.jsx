@@ -12,6 +12,7 @@ export default function PeopleList({searchTerm, selectedStatus}) {
         try {
             const response = await axios.get(url);
             const data = response.data;
+            setData(data);
         } catch(error) {
             console.log(error);
         }
@@ -19,7 +20,6 @@ export default function PeopleList({searchTerm, selectedStatus}) {
         // const data = await response.json();
         
         //change the state of this component, using the new data
-        setData(data);
     }
 
     useEffect(() => {
