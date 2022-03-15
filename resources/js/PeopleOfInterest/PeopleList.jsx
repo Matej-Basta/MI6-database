@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function PeopleList({searchTerm, selectedStatus}) {
 
@@ -8,11 +9,15 @@ export default function PeopleList({searchTerm, selectedStatus}) {
         const url = "/api/search?search=" + encodeURIComponent(searchTerm) + "&status=" + encodeURIComponent(selectedStatus);
 
         // make a fetch request onto that URL
-        const response = await fetch(url);
-
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
+        } catch(error) {
+            console.log(error);
+        }
         //parse the response at JSON
-        const data = await response.json();
-
+        // const data = await response.json();
+        
         //change the state of this component, using the new data
         setData(data);
     }
