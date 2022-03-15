@@ -8,6 +8,6 @@ class PeopleController extends Controller
 {
     public function index()
     {
-        return view("index.index");
+        return view('people.index');
     }
 }

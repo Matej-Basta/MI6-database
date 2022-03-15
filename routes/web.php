@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/people-of-interest", "PeopleController@index");
+
+Route::get('/people-of-interest', 'PeopleController@index');

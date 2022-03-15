@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/search", "Api\PeopleController@index");
+//     /api/request
+Route::get('request', 'Api\PeopleController@index');

@@ -11,16 +11,21 @@ class PeopleController extends Controller
 {
     public function index(Request $request)
     {
-        //get the search term from the request
-        $search_term = $request->input("search");
+        // get the search term from the request
+        $search_term = $request->input('search');
 
+        //       FROM `people`
         $query = Person::query();
 
         if ($search_term !== null) {
-            $query->where("name", "like", $search_term . "%");
+            //      WHERE `name`   LIKE   'james%'
+            $query->where('name', 'like', $search_term . '%');
         }
 
-        $people = $query->orderBy("name", "asc")->limit(50)->get();
+        $people = $query
+            ->orderBy('name', 'asc') // ORDER BY `name` ASC
+            ->limit(50)              // LIMIT 50
+            ->get();                 // SELECT *
 
         return $people;
     }
