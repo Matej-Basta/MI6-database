@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get("/people-of-interest", "PeopleController@index");
+
+//for any URL that begins with /missions/, display the view missions.app
+Route::view("/missions/{path?}", "missions.app")->where("path", ".*");
